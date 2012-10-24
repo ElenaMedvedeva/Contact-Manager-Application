@@ -1,0 +1,154 @@
+<!--
+/*******************************************************************************
+ * Copyright 2012 IBBT
+ *  
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *  
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *  
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
+
+-->
+
+<html>
+<head>
+<title>Contact Manager</title>
+<meta charset="utf-8"/>
+<title>Contact Manager1</title>
+<link rel="stylesheet" href="main.css">
+<!--<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css" media="screen">--> 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.1/dojo/dojo.xd.js"></script>
+<script type="text/javascript" src="../../webinos.js"></script>
+<script type="text/javascript" src="Authentificate.js"></script>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"
+	data-dojo-config="parseOnLoad: true">
+	</script> 
+	 <script>
+	 dojo.require("dojo.parser");
+	 dojo.require("dijit.layout.BorderContainer");
+	 dojo.require("dijit.layout.TabContainer");
+	 dojo.require("dijit.layout.ContentPane");
+	 </script> -->
+</head>
+<body>
+
+<table border="1" align="center" width="100%" >
+    <tr valign="top">
+      <td width="50%">
+        <div>
+          <div>
+          <button id="registerBrowser" class="button">Register Browser</button>
+          <br>
+          <button id="btnFindService" class="button">Find Contacts Service</button>
+          <br>
+          <select id="getContactsServices" size="5"  width="500" style="width: 500px"></select>
+          <br><button id="btnBindService" class="button">Bind Service</button>
+            <p>
+              <input type="radio" name="contactType" value="remote"
+                id="cnt_remote" checked="checked"">Remote
+              Contacts (GMail) <br> <input type="radio"
+                name="contactType" value="local" id="cnt_local"">Local
+              Contacts (Address Book) <br>
+               <div id="localAuth" style="display: none;">
+              <label
+                for="addressBookNameText">Local Address Book: </label>
+              <!-- We'd better put an "open file" form -->
+              <input type="text" id="addressBookNameText" size="40"
+                placeholder="<path_to_your_Thunderbird_.mab file>" />
+              </div>
+              <div id="remoteAuth">
+               <label for="usernameText">Username: </label> <input
+                type="text" id="usernameText"
+                placeholder="enter username" /> <br> <label
+                for="passwordText">Password: </label> <input
+                type="password" id="passwordText"
+                placeholder="enter password" /> <br>
+              </div>
+            </p>
+          </div>
+
+          <div>
+            <button id="btnAuthenticate" class="button">Authenticate/Open</button>
+          </div>
+          <div>
+          <button id="btnMainPage" class="button">Go to Search Menu</button>
+        </div>
+
+          <div id="html_contacts" style="background-color:lightgray; border:1px solid black">
+	    <script> document.getElementById('html_contacts').innerHTML = "NO SERVICE";</script>
+	  </div>
+          <div id="authStatus" style="background-color:lightgray; border:1px solid black">
+	    <script> document.getElementById('authStatus').innerHTML = "NOT AUTHENTICATED, YET";</script>
+	  </div>
+
+      </td>
+
+      <!--Right part of the table-->
+      <td width="50%">
+      		<section id="main">
+        <!--<div>          
+          <div id="find_contacts">
+            <p><table>
+            	 <tr><td>
+            		<label for="findContactDisplayName" >Display Name: </label>
+            		</td><td>
+            		<input type="text" id="findContactDisplayName" placeholder="DisplayName" /><br>
+            	 </td></tr>
+                 <tr><td>
+                       <label for="findContactName" >Name: </label>
+              </td><td>
+                       <input type="text" id="findContactName" placeholder="Name" /><br>
+                </td></tr>
+               <tr><td>
+                    <label for="findContactEmail">Email: </label>
+               </td><td>
+               <input type="text" id="findContactEmail"  placeholder="Email Address" />
+                </td></tr>
+               <tr><td>
+                <label for="findContactPhone:" >Phone: </label>
+               </td><td>
+                <input type="text" id="findContactPhone" placeholder="Phone" />
+                 </td></tr>
+               <tr><td>
+              <label for="findContactEmail">Address: </label>
+               </td><td>
+               <input
+                type="text" id="findContactAddress"
+                placeholder="Address" />
+                </td></tr>
+               </table>
+            </p>
+          </div>
+          <div>
+          <button id="btnFindServiceContacts" class="button">Find contacts</button>
+            <br>
+            <button id="btnAllServiceContacts" class="button">List all contacts</button>
+            <br>
+            Not supported yet
+            <br>
+            <button id="btnAddContact" class="button" title="Not supported yet">Add Contact</button>
+            <br>
+            <a href="https://twitter.com/share" class="twitter-share-button">Tweet!</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </div>
+          <br/><br/>
+          <div id="contactList">
+            <script> document.getElementById('contactList').innerHTML = "";</script>
+          </div>
+        </div> -->
+        </section>
+     </td>
+    </tr>
+  </table>
+  
+
+</body>
+</html>
