@@ -1,3 +1,6 @@
+var personName;
+var contactList;
+var selectedNumber;
 $(document).ready(function() {
 	function logMessage(msg) {
 	      if (msg) {
@@ -124,7 +127,8 @@ $(document).ready(function() {
 			  
 			  //new page for person
 			  $('a.person').live('click', function(element) {
-			  	  console.log("person clicked = ", $(this).html().trim());
+			  	  console.log("person clicked = ", $(this).html().trim(), "number=", $(this).attr("number"));
+			  	  selectedNumber =  $(this).attr("number");
 			  	  var displayName = $(this).html().trim();
 			  	  personName = displayName;
 			  	  setPage(displayName, "person.html");
@@ -135,8 +139,9 @@ $(document).ready(function() {
 			  //function format_search(search) 
 			  //{
 			  //return "%" + search + "%";
-			  //}
-			 
+			  //}		 
+			  
+			  
 			  
 			  function setPage(displayName, page){
 				  console.log('from setPage');
@@ -150,7 +155,8 @@ $(document).ready(function() {
 			      $.get(page, {}, function(reply) {
 			    	  console.log("Reply=",reply);
 			        $('#main').html('<article class="module width_full"><header><h3>' + displayName +
-			                '</h3></header><div class="module_content">'+ reply + '</div></article>');
+			                '</h3></header>'+ reply + '</article>');
+			    	 // $('#main').html( reply );
 			      }, "html");
 			    };
 			    
@@ -158,13 +164,14 @@ $(document).ready(function() {
 			  function print_contact_names(list){
 			    //alert("contact list size " + list.length)
 			    //clean then write
+				  contactList = list;
 			    document.getElementById('contactList').innerHTML = "";
 			    if (list.length > 0){
 			      for ( var i = 0; i < list.length; i++){
 			                console.log("list=" ,list[i]);
 			                var contactString=" <b>Display Name: </b>";
 			        var displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" :list[i].displayName );
-			        contactString += "<a href='#person' class=\"person\">" + displayName +"</a>";
+			        contactString += "<a href='#person' number='" + i + "' class=\"person\">" + displayName +"</a>";
 			        //onclick='setPage(\"person.html\")\'
 			        $('#contactList').append(contactString);
 			        $('#contactList').append("<br>");

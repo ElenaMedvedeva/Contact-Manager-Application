@@ -1,5 +1,4 @@
 var recentService;
-var personName;
 $(document).ready(function() {
     function logMessage(msg) {
       if (msg) {
@@ -17,7 +16,7 @@ $(document).ready(function() {
 	      var fetch = 'http://'+window.location.hostname+':'+ port+'/client/Contact-Manager-Application/ContactAppProject/'+page;
 	      console.log("!!!from setPage ", "fetch=", fetch);
 	      $.get(page, {}, function(reply) {
-	    	  console.log("Reply=",reply);
+	    	 // console.log("Reply=",reply);
 	        $('#main').html( reply );
 	      }, "html");
 	    };
