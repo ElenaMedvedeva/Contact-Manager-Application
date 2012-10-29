@@ -22,16 +22,25 @@
 <title>Contact Manager</title>
 <meta charset="utf-8"/>
 <title>Contact Manager1</title>
-<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="css/main.css">
+<!--<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/dojo/1.6/dijit/themes/claro/claro.css" media="screen">--> 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
-<script type="text/javascript" src="../webinos.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.1/dojo/dojo.xd.js"></script>
-<script type="text/javascript" src="Authentificate.js"></script>
+<script type="text/javascript" src="../webinos.js"></script>
+<script type="text/javascript" src="js/Authenticate.js"></script>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"
+	data-dojo-config="parseOnLoad: true">
+	</script> 
+	 <script>
+	 dojo.require("dojo.parser");
+	 dojo.require("dijit.layout.BorderContainer");
+	 dojo.require("dijit.layout.TabContainer");
+	 dojo.require("dijit.layout.ContentPane");
+	 </script> -->
 </head>
 <body>
 
-
- <table border="1" align="center" width="100%" >
+<table border="1" align="center" width="100%" >
     <tr valign="top">
       <td width="50%">
         <div>
@@ -69,6 +78,9 @@
           <div>
             <button id="btnAuthenticate" class="button">Authenticate/Open</button>
           </div>
+          <div>
+          <button id="btnMainPage" class="button">Go to Search Menu</button>
+        </div>
 
           <div id="html_contacts" style="background-color:lightgray; border:1px solid black">
 	    <script> document.getElementById('html_contacts').innerHTML = "NO SERVICE";</script>
@@ -81,11 +93,15 @@
 
       <!--Right part of the table-->
       <td width="50%">
-        <div>
-          <!--           <p id="cwd"></p>
-          <ul id="ls"></ul> -->
+      		<section id="main">
+        <!--<div>          
           <div id="find_contacts">
             <p><table>
+            	 <tr><td>
+            		<label for="findContactDisplayName" >Display Name: </label>
+            		</td><td>
+            		<input type="text" id="findContactDisplayName" placeholder="DisplayName" /><br>
+            	 </td></tr>
                  <tr><td>
                        <label for="findContactName" >Name: </label>
               </td><td>
@@ -123,16 +139,16 @@
             <a href="https://twitter.com/share" class="twitter-share-button">Tweet!</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
           </div>
-
+          <br/><br/>
           <div id="contactList">
             <script> document.getElementById('contactList').innerHTML = "";</script>
           </div>
-        </div>
-
-      </td>
+        </div> -->
+        </section>
+     </td>
     </tr>
   </table>
-
+  
 
 </body>
 </html>

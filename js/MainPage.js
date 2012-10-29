@@ -1,6 +1,7 @@
 var personName;
 var contactList;
 var selectedNumber;
+var contactPage = "contact.html";
 $(document).ready(function() {
 	function logMessage(msg) {
 	      if (msg) {
@@ -126,12 +127,12 @@ $(document).ready(function() {
 			  });
 			  
 			  //new page for person
-			  $('a.person').live('click', function(element) {
+			  $('a.contact').live('click', function(element) {
 			  	  console.log("person clicked = ", $(this).html().trim(), "number=", $(this).attr("number"));
 			  	  selectedNumber =  $(this).attr("number");
 			  	  var displayName = $(this).html().trim();
 			  	  personName = displayName;
-			  	  setPage(displayName, "person.html");
+			  	  setPage(displayName, contactPage);
 			  	});
 
 			 
@@ -150,7 +151,7 @@ $(document).ready(function() {
 			        port = 8080;
 			      }
 			      console.log("!!!from setPage ", "port=", port);
-			      var fetch = 'http://'+window.location.hostname+':'+ port+'/client/Contact-Manager-Application/ContactAppProject/'+page;
+			      var fetch = 'http://'+window.location.hostname+':'+ port+'/client/Contact-Manager-Application/'+page;
 			      console.log("!!!from setPage ", "fetch=", fetch);
 			      $.get(page, {}, function(reply) {
 			    	  console.log("Reply=",reply);
@@ -171,7 +172,7 @@ $(document).ready(function() {
 			                console.log("list=" ,list[i]);
 			                var contactString=" <b>Display Name: </b>";
 			        var displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" :list[i].displayName );
-			        contactString += "<a href='#person' number='" + i + "' class=\"person\">" + displayName +"</a>";
+			        contactString += "<a href='#contact' number='" + i + "' class=\"contact\">" + displayName +"</a>";
 			        //onclick='setPage(\"person.html\")\'
 			        $('#contactList').append(contactString);
 			        $('#contactList').append("<br>");

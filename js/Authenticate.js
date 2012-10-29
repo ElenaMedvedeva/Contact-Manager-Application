@@ -13,7 +13,7 @@ $(document).ready(function() {
 	        port = 8080;
 	      }
 	      console.log("!!!from setPage ", "port=", port);
-	      var fetch = 'http://'+window.location.hostname+':'+ port+'/client/Contact-Manager-Application/ContactAppProject/'+page;
+	      var fetch = 'http://'+window.location.hostname+':'+ port+'/client/Contact-Manager-Application/'+page;
 	      console.log("!!!from setPage ", "fetch=", fetch);
 	      $.get(page, {}, function(reply) {
 	    	 // console.log("Reply=",reply);
