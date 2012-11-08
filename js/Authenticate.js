@@ -39,7 +39,8 @@ $(document).ready(function() {
         console.log('++registeredBrowser msg from ' + pzpId);
       }
     }
-    webinos.session.addListener('registeredBrowser', fillPZAddrs);
+    webinos.session.addListener('registeredBrowser', fillPZAddrs);    
+    webinos.session.addListener('registeredBrowser',TwitterHelper.init); 
 
     function updatePZAddrs(data) {
         if(typeof data.payload.message.pzp !== "undefined") {

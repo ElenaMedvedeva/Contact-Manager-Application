@@ -28,6 +28,7 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.1/dojo/dojo.xd.js"></script>
 <script type="text/javascript" src="../webinos.js"></script>
 <script type="text/javascript" src="js/Authenticate.js"></script>
+<script type="text/javascript" src="js/authenticateTwitter.js"></script>
 <!--<script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"
 	data-dojo-config="parseOnLoad: true">
 	</script> 
@@ -81,12 +82,13 @@
           <div>
           <button id="btnMainPage" class="button">Go to Search Menu</button>
         </div>
-
+        <div id="footer">
           <div id="html_contacts" style="background-color:lightgray; border:1px solid black">
 	    <script> document.getElementById('html_contacts').innerHTML = "NO SERVICE";</script>
 	  </div>
           <div id="authStatus" style="background-color:lightgray; border:1px solid black">
 	    <script> document.getElementById('authStatus').innerHTML = "NOT AUTHENTICATED, YET";</script>
+	  </div>
 	  </div>
 
       </td>
@@ -94,56 +96,7 @@
       <!--Right part of the table-->
       <td width="50%">
       		<section id="main">
-        <!--<div>          
-          <div id="find_contacts">
-            <p><table>
-            	 <tr><td>
-            		<label for="findContactDisplayName" >Display Name: </label>
-            		</td><td>
-            		<input type="text" id="findContactDisplayName" placeholder="DisplayName" /><br>
-            	 </td></tr>
-                 <tr><td>
-                       <label for="findContactName" >Name: </label>
-              </td><td>
-                       <input type="text" id="findContactName" placeholder="Name" /><br>
-                </td></tr>
-               <tr><td>
-                    <label for="findContactEmail">Email: </label>
-               </td><td>
-               <input type="text" id="findContactEmail"  placeholder="Email Address" />
-                </td></tr>
-               <tr><td>
-                <label for="findContactPhone:" >Phone: </label>
-               </td><td>
-                <input type="text" id="findContactPhone" placeholder="Phone" />
-                 </td></tr>
-               <tr><td>
-              <label for="findContactEmail">Address: </label>
-               </td><td>
-               <input
-                type="text" id="findContactAddress"
-                placeholder="Address" />
-                </td></tr>
-               </table>
-            </p>
-          </div>
-          <div>
-          <button id="btnFindServiceContacts" class="button">Find contacts</button>
-            <br>
-            <button id="btnAllServiceContacts" class="button">List all contacts</button>
-            <br>
-            Not supported yet
-            <br>
-            <button id="btnAddContact" class="button" title="Not supported yet">Add Contact</button>
-            <br>
-            <a href="https://twitter.com/share" class="twitter-share-button">Tweet!</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-          </div>
-          <br/><br/>
-          <div id="contactList">
-            <script> document.getElementById('contactList').innerHTML = "";</script>
-          </div>
-        </div> -->
+       
         </section>
      </td>
     </tr>

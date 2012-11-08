@@ -1,110 +1,141 @@
-$(document).ready(function() {
-	// $('#contactList1').html("Contact data" + recentService);
-	 
+var twitterNick = null;
+var twitterLimit = 140; 
+
+function reTweet(data){
+	  $('#tbox').find("textarea").val('@' + data);
+};
+
+function printContact1(contact) {
+	document.getElementById('contactList1').innerHTML = "";	  
+	console.log("contact=", contact, document.getElementById('contactList1'));
+	var contactString = " <b>Display Name: </b>";
+	var displayName = (contact.displayName == "" ? "<b>Anonymous</b>": contact.displayName);
+	contactString += displayName + "<br>";
+					// onclick='setPage(\"person.html\")\'
+	if(contact.nickname != undefined && contact.nickname != "") {
+		contactString +="<b>Nickname: </b>" + contact.nickname + "<br>";
+		twitterNick = contact.nickname;
+		reTweet(twitterNick);
+	} else {
+		twitterNick = null;
+	}
+	// name
+	contactString += (contact.name.formatted == "" ? "<b>Anonymous</b></br>": "<b>Name: </b>" + contact.name.formatted 	+ "<br>");
+
+	if ((contact.emails instanceof Array) && contact.emails.length > 0) {
+		contactString += "<b>Emails:</b><br>";
+		for ( var j = 0; j < contact.emails.length; j++)
+			contactString += "&nbsp;&nbsp;"	+ (contact.emails[j].pref ? "* ": "&nbsp;&nbsp;") + contact.emails[j].type + ": <a href=\"mailto:"
+									+ contact.emails[j].value + "\">"
+									+ contact.emails[j].value + "</a><br>";
+	}
+	if ((contact.addresses instanceof Array) && contact.addresses.length > 0) {
+		contactString += "<b>Addresses:</b><br>";
+		for ( var j = 0; j < contact.addresses.length; j++)
+			contactString += "&nbsp;&nbsp;"	+ (contact.addresses[j].pref ? "* " : "&nbsp;&nbsp;")
+									+ (contact.addresses[j].type == "" ? "other": contact.addresses[j].type)
+									+ ": " + contact.addresses[j].formatted
+									+ "<br>";
+	}
+	if ((contact.phoneNumbers instanceof Array)	&& contact.phoneNumbers.length > 0) {
+		contactString += "<b>Phones:</b><br>";
+		for ( var j = 0; j < contact.phoneNumbers.length; j++)
+			contactString += "&nbsp;&nbsp;" + (contact.phoneNumbers[j].pref ? "* ": "&nbsp;&nbsp;")
+									+ contact.phoneNumbers[j].type + ": "
+									+ contact.phoneNumbers[j].value
+									+ "<br>";
+	}
+	if ((contact.ims instanceof Array) && contact.ims.length > 0) {
+		contactString += "<b>Messengers:</b><br>";
+		for ( var j = 0; j < contact.ims.length; j++)
+			contactString += "&nbsp;&nbsp;" + (contact.ims[j].pref ? "* " : "&nbsp;&nbsp;")
+									+ contact.ims[j].type + ": "
+									+ contact.ims[j].value + "<br>";
+	}
+	if ((contact.organizations instanceof Array) && contact.organizations.length > 0) {
+		contactString += "<b>Organizations:</b><br>";
+		for ( var j = 0; j < contact.organizations.length && contact.organizations[j].name != undefined; j++)
+			contactString += "&nbsp;&nbsp;" + (contact.organizations[j].pref ? "* " : "&nbsp;&nbsp;")
+									+ contact.organizations[j].type + ": "
+									+ contact.organizations[j].name
+									+ "<br>";
+	}
+	//console.log("Photoes=" + contact.photos);
+
+	if ((contact.photos instanceof Array) && contact.photos.length > 0) {
+		contactString += "<b>Picture:</b><br>";
+		for ( var j = 0; j < contact.photos.length; j++) {
+			if (contact.photos[j].type == "file") // is
+				// base64
+				// string
+				contactString += "<img src=\"data:image/png;base64," + contact.photos[j].value + "\" alt=\"Image\"><br>";
+
+			else if (contact.photos[j].type == "url") // is an URL
+				contactString += "<img src=\"" + contact.photos[j].value + "\" alt=\"Image\"><br>";
+			// TODO: quick and dirty solution for android
+			// issue. Photos arrays starts as array and get
+			// here as object
+			else { // if (/*(contact.photos instanceof
+				// Object) &&*/ contact.photos.value) {
+				var photo =contact.photos[j].value;
+				contactString += "<img alt=\"Image\" , src=\"data:image\/png;base64, " + photo + "\" /><br>";
+			}
+		}
+	}
+
+	if ((contact.urls instanceof Array) && contact.urls.length > 0) {
+		contactString += "<b>Websites:</b><br>";
+		for ( var j = 0; j < contact.urls.length; j++)
+			contactString += "&nbsp;&nbsp;" + (contact.urls[j].pref ? "* ": "&nbsp;&nbsp;")
+									+ contact.urls[j].type + ": <a href=\""
+									+ contact.urls[j].value + "\">"
+									+ contact.urls[j].value + "</a><br>";
+	}
+
+	contactString += "<br>";
+	console.log("HERE!!!");
+        console.log("contactList1", $('#contactList1'));
+      //  document.getElementById('contactList1').innerHTML = contactString;
+	$('#contactList1').append(contactString);
+	$('#contactList1').append("<br>");
+};
+
+function initContact(){
+	$("#tbox").maxinput({
+		position	: 'topleft',
+		showtext 	: true,
+		limit		: twitterLimit
+	});
 	
-	
-	
-	// console.log("personName=", personName,  " list=", contactList);
-	 //if(personName){
-		// console.log("personName=", personName, recentService);
-		 //setTimeout(findByDisplayName, 1000);
-	// }
 	 
 	 if(contactList && selectedNumber){			
 		 console.log("Printing", $(this));		 
 		 printContact1(contactList[selectedNumber]);
 	 }
 	 
+	 $('#btnSubmit').bind('click', function(){		
+		    // Tweet Message only
+			TwitterHelper.API.tweetMessage(
+				$('#tbox').find("textarea").val(),
+				function(){
+					console.log('Tweet message successful');
+					$('#tbox').find("textarea").val('');
+					if(twitterNick){
+						reTweet(twitterNick);
+						}
+					var currlength = $('textarea',$("#tbox")).val().length ;			
+					$('.jMax-text span:first', $("#tbox")).html(twitterLimit - currlength);
+					},
+				function(){console.log('Tweet message unsuccessful'); alert("error");}
+			);				
+	});
 
-	function printContact1(contact) {
-		document.getElementById('contactList1').innerHTML = "";	  
-		console.log("contact=", contact, document.getElementById('contactList1'));
-		var contactString = " <b>Display Name: </b>";
-		var displayName = (contact.displayName == "" ? "<b>Anonymous</b>": contact.displayName);
-		contactString += displayName + "<br>";
-						// onclick='setPage(\"person.html\")\'
-		contactString += ((contact.nickname == undefined || contact.nickname == "") ? "": "<b>Nickname: </b>" + contact.nickname + "<br>");
-		// name
-		contactString += (contact.name.formatted == "" ? "<b>Anonymous</b></br>": "<b>Name: </b>" + contact.name.formatted 	+ "<br>");
+};
 
-		if ((contact.emails instanceof Array) && contact.emails.length > 0) {
-			contactString += "<b>Emails:</b><br>";
-			for ( var j = 0; j < contact.emails.length; j++)
-				contactString += "&nbsp;&nbsp;"	+ (contact.emails[j].pref ? "* ": "&nbsp;&nbsp;") + contact.emails[j].type + ": <a href=\"mailto:"
-										+ contact.emails[j].value + "\">"
-										+ contact.emails[j].value + "</a><br>";
-		}
-		if ((contact.addresses instanceof Array) && contact.addresses.length > 0) {
-			contactString += "<b>Addresses:</b><br>";
-			for ( var j = 0; j < contact.addresses.length; j++)
-				contactString += "&nbsp;&nbsp;"	+ (contact.addresses[j].pref ? "* " : "&nbsp;&nbsp;")
-										+ (contact.addresses[j].type == "" ? "other": contact.addresses[j].type)
-										+ ": " + contact.addresses[j].formatted
-										+ "<br>";
-		}
-		if ((contact.phoneNumbers instanceof Array)	&& contact.phoneNumbers.length > 0) {
-			contactString += "<b>Phones:</b><br>";
-			for ( var j = 0; j < contact.phoneNumbers.length; j++)
-				contactString += "&nbsp;&nbsp;" + (contact.phoneNumbers[j].pref ? "* ": "&nbsp;&nbsp;")
-										+ contact.phoneNumbers[j].type + ": "
-										+ contact.phoneNumbers[j].value
-										+ "<br>";
-		}
-		if ((contact.ims instanceof Array) && contact.ims.length > 0) {
-			contactString += "<b>Messengers:</b><br>";
-			for ( var j = 0; j < contact.ims.length; j++)
-				contactString += "&nbsp;&nbsp;" + (contact.ims[j].pref ? "* " : "&nbsp;&nbsp;")
-										+ contact.ims[j].type + ": "
-										+ contact.ims[j].value + "<br>";
-		}
-		if ((contact.organizations instanceof Array) && contact.organizations.length > 0) {
-			contactString += "<b>Organizations:</b><br>";
-			for ( var j = 0; j < contact.organizations.length && contact.organizations[j].name != undefined; j++)
-				contactString += "&nbsp;&nbsp;" + (contact.organizations[j].pref ? "* " : "&nbsp;&nbsp;")
-										+ contact.organizations[j].type + ": "
-										+ contact.organizations[j].name
-										+ "<br>";
-		}
-		//console.log("Photoes=" + contact.photos);
 
-		if ((contact.photos instanceof Array) && contact.photos.length > 0) {
-			contactString += "<b>Picture:</b><br>";
-			for ( var j = 0; j < contact.photos.length; j++) {
-				if (contact.photos[j].type == "file") // is
-					// base64
-					// string
-					contactString += "<img src=\"data:image/png;base64," + contact.photos[j].value + "\" alt=\"Image\"><br>";
-
-				else if (contact.photos[j].type == "url") // is an URL
-					contactString += "<img src=\"" + contact.photos[j].value + "\" alt=\"Image\"><br>";
-				// TODO: quick and dirty solution for android
-				// issue. Photos arrays starts as array and get
-				// here as object
-				else { // if (/*(contact.photos instanceof
-					// Object) &&*/ contact.photos.value) {
-					var photo =contact.photos[j].value;
-					contactString += "<img alt=\"Image\" , src=\"data:image\/png;base64, " + photo + "\" /><br>";
-				}
-			}
-		}
-
-		if ((contact.urls instanceof Array) && contact.urls.length > 0) {
-			contactString += "<b>Websites:</b><br>";
-			for ( var j = 0; j < contact.urls.length; j++)
-				contactString += "&nbsp;&nbsp;" + (contact.urls[j].pref ? "* ": "&nbsp;&nbsp;")
-										+ contact.urls[j].type + ": <a href=\""
-										+ contact.urls[j].value + "\">"
-										+ contact.urls[j].value + "</a><br>";
-		}
-
-		contactString += "<br>";
-		console.log("HERE!!!");
-	        console.log("contactList1", $('#contactList1'));
-	      //  document.getElementById('contactList1').innerHTML = contactString;
-		$('#contactList1').append(contactString);
-		$('#contactList1').append("<br>");
-	};
-	 
+$(document).ready(function() {
+	initContact();
+	
 	 //not used now
 	 function findByDisplayName(){
 		 	displayName = personName;
