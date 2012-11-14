@@ -30,14 +30,14 @@ $(document).ready(function() {
     function fillPZAddrs(data) {
       var pzpId = data.from;
       var pzhId, connectedPzh , connectedPzp;
-      if (pzpId !== "virgin_pzp") {
-        pzhId = data.payload.message.pzhId;
+     // if (pzpId !== "virgin_pzp") {
+       // pzhId = data.payload.message.pzhId;
         connectedPzp = data.payload.message.connectedPzp; // all connected pzp
         connectedPzh = data.payload.message.connectedPzh; // all connected pzh
 
         logMessage('registeredBrowser msg from ' + pzpId);
         console.log('++registeredBrowser msg from ' + pzpId);
-      }
+      //}
     }
     webinos.session.addListener('registeredBrowser', fillPZAddrs);    
     webinos.session.addListener('registeredBrowser',TwitterHelper.init); 
@@ -91,11 +91,6 @@ $(document).ready(function() {
       logMessage('CONTACTS API ' + service.api + ' bound.');
       $('#html_contacts').html("<i><b>Contacts</b></i> webinos rpc service found!<br>Please select contacts type, fill the text areas then press <i>Authenticate</i> button above.");
         }});
-    });
-
-    $('#registerBrowser').bind('click', function() {
-      var options = {type: 'prop', payload: {status:'registerBrowser'}};
-      webinos.session.message_send(options);
     });
     
     function handle_authentication_query(status) // see function
