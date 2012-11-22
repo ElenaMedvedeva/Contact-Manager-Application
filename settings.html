@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Contact</title>
+<meta charset="utf-8"/>
+<title>Contact</title>
+<link rel="stylesheet" href="css/main.css">
+<script type="text/javascript" src="js/settings.js"></script>
+<link rel="stylesheet" href="main.css">
+</head>
+<body> 
+<div> <div>          
+<!--<button id="btnFindService" class="button">Find Contacts Service</button>
+<br>
+<select id="getContactsServices" size="5"  width="500" style="width: 500px"></select>
+<br>
+<button id="btnBindService" class="button">Bind Service</button> -->
+  <p>
+    <input type="radio" name="contactType" value="remote"
+      id="cnt_remote" checked="checked">Remote Contacts (GMail) <br> 
+      <input type="radio"
+      name="contactType" value="local" id="cnt_local"">Local Contacts (Address Book) <br>
+     <div id="localAuth" style="display: none;">
+    <label
+      for="addressBookNameText">Local Address Book: </label>
+    <!-- We'd better put an "open file" form -->
+    <input type="text" id="addressBookNameText" size="40"
+      placeholder="<path_to_your_Thunderbird_.mab file>" />
+    </div>
+    <div id="remoteAuth">
+     <label for="usernameText">Username: </label> <input
+      type="text" id="usernameText"
+      placeholder="enter username" /> <br> <label
+      for="passwordText">Password: </label> <input
+      type="password" id="passwordText"
+      placeholder="enter password" /> <br>
+    </div>
+  </p>
+</div>
+<div>
+
+<button id="btnSaveSettings" class="button">Save Settings</button>
+</div>
+<div>
+<button id="btnAuthenticate" class="button">Authenticate/Open</button>
+</div>
+<div id="noSettings"></div>
+ </div>
+ 
+</body>
+</html>     

@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Contact</title>
+<meta charset="utf-8"/>
+<title>Contact</title>
+<link rel="stylesheet" href="css/main.css">
+<!--<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.1/dojo/dojo.xd.js"></script>
+<script type="text/javascript" src="../../webinos.js"></script>
+<script type="text/javascript" src="js/Authenticate.js"></script>-->
+<script type="text/javascript" src="js/searchPage.js"></script>
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div>
+          <!--           <p id="cwd"></p>
+          <ul id="ls"></ul> -->
+          <div id="find_contacts">
+            <p><table>
+            	 <tr><td>
+            		<label for="findContactDisplayName" >Display Name: </label>
+            		</td><td>
+            		<input type="text" id="findContactDisplayName" placeholder="DisplayName" /><br>
+            	 </td></tr>
+                 <tr><td>
+                       <label for="findContactName" >Name: </label>
+              </td><td>
+                       <input type="text" id="findContactName" placeholder="Name" /><br>
+                </td></tr>
+               <tr><td>
+                    <label for="findContactEmail">Email: </label>
+               </td><td>
+               <input type="text" id="findContactEmail"  placeholder="Email Address" />
+                </td></tr>
+               <tr><td>
+                <label for="findContactPhone:" >Phone: </label>
+               </td><td>
+                <input type="text" id="findContactPhone" placeholder="Phone" />
+                 </td></tr>
+               <tr><td>
+              <label for="findContactEmail">Address: </label>
+               </td><td>
+               <input
+                type="text" id="findContactAddress"
+                placeholder="Address" />
+                </td></tr>
+               </table>
+            </p>
+          </div>
+          <div>
+          <button id="btnFindServiceContacts" class="button">Find contacts</button>
+            <br/>
+            
+           
+          <br/><br/>
+          <div id="contactList">
+            <script> document.getElementById('contactList').innerHTML = "";</script>
+          </div>
+        </div>
+</body>
+</html>               
