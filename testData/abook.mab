@@ -24,7 +24,7 @@
   (B1=BirthMonth)(B2=BirthDay)(B3=Custom1)(B4=Custom2)(B5=Custom3)
   (B6=Custom4)(B7=Notes)>
 
-<(A6=3)(81=Sasha Medvedev  )(82=)(80=0)(9A=1350855222)(83=Sasha)(84=1)
+<(9C=5)(81=Sasha Medvedev  )(82=)(80=0)(9A=1350855222)(83=Sasha)(84=1)
   (85=Medvedev)(98
     =http://upload.wikimedia.org/wikipedia/mediawiki/7/74/Launcher_icon_Signpo\
 st.png)(86=sasha.medvedev@gmail.com)(97=web)(99=947730897929302.png)
@@ -33,15 +33,21 @@ st.png)(86=sasha.medvedev@gmail.com)(97=web)(99=947730897929302.png)
     =file:///C:/CommunikAndSoftSkills/Maslow%27s%20piramyd.png)(8F
     =lilibell@tut.by)(90=file)(91=+375291860666)(C8=3004871078610062.png)
   (93=2642666)(94=2)(95=Minsk)(96=Kutuzova 25 - 1)(C6=LilibellAlena)
-  (9B=Elena Medvedeva  )(AD=Elena123)(9C=5)(9D=DUALLAB)(B0=prochee)
-  (AC=lilibell5)(9E=Developer)(9F=Czech Republic)(A0=1986)(C9=1352386618)
-  (A1=Elena)(A2=Medvedeva)(B5
+  (9B=Elena Medvedeva  )(AD=Elena123)(9D=DUALLAB)(B0=prochee)(AC=lilibell5)
+  (9E=Developer)(9F=Czech Republic)(A0=1986)(C9=1352386618)(A1=Elena)
+  (A2=Medvedeva)(B5
     =file:///C:/CommunikAndSoftSkills/motivation_research.gif)(BD=220049)
   (A3=elena.medvedeva.8@gmail.com)(BA=www.google.com)(A4=+11117777777)
-  (CA=9827903246725331.gif)(A5=2817083)(A7=02)(A8=Brno)(B8=Gde-to Daleko)
-  (B9=Jana Babaka 3 - 003)(C0=LilibellElena)(AB=dont_remember)>
+  (CA=9827903246725331.gif)(A5=2817083)(A6=3)(A7=02)(A8=Brno)(B8
+    =Gde-to Daleko)(B9=Jana Babaka 3 - 003)(C0=LilibellElena)(AB
+    =dont_remember)(CB=Diana Jilina  )(D1=1354548895)(CC=Diana)(CD=Jilina)
+  (D2
+    =http://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Richard_Burton_J\
+ulie_Andrews_Camelot.JPG/481px-Richard_Burton_Julie_Andrews_Camelot.JPG)
+  (D3=2132119929701578.JPG)(D0=4)(D4=Julia Naumchik  )(D8=1354549421)
+  (D5=Julia)(D6=Naumchik)(D9=8769315500459903.JPG)>
 {1:^80 {(k^BC:c)(s=9)} 
-  [1:^82(^BB=3)]
+  [1:^82(^BB=5)]
   [1(^87^81)(^86=)(^C3=)(^A1=)(^AE=)(^C4=)(^C5=)(^B2=)(^A7=)(^9A=)(^B3=)
     (^C6=)(^A6=)(^A4=)(^A5=)(^A3=)(^9E=)(^85=)(^B0=)(^8D=0)(^C7=)(^A0=)
     (^A2=)(^B7=)(^8C=0)(^B8^9A)(^83^83)(^A8=)(^C8=1)(^84^85)(^92=)(^C9^98)
@@ -60,4 +66,16 @@ st.png)(86=sasha.medvedev@gmail.com)(97=web)(99=947730897929302.png)
     (^84^A2)(^92=)(^C9^B5)(^B6=)(^9D^BD)(^89^A3)(^8E=0)(^AF^BA)(^CA^90)
     (^8F^A4)(^CB^CA)(^8B=)(^93=)(^90^A5)(^CC=3)(^B1=02)(^CD=)(^9B^A8)
     (^9C=)(^91=)(^B4=)(^9F^B8)(^99^B9)(^88^C0)(^CE^AB)(^B5=)(^8A^A3)
-    (^B9=3)]}
+    (^B9=3)]
+  [4(^87^CB)(^86=)(^C3=)(^A1=)(^AE=)(^C4=)(^C5=)(^B2=)(^A7=)(^9A=)(^B3=)
+    (^C6=)(^A6=)(^A4=)(^A5=)(^A3=)(^9E=)(^85=)(^B0=)(^8D=0)(^C7=)(^A0=)
+    (^A2=)(^B7=)(^8C=0)(^B8^D1)(^83^CC)(^A8=)(^C8=1)(^84^CD)(^92=)(^C9^D2)
+    (^B6=)(^9D=)(^89=)(^8E=0)(^AF=)(^CA^97)(^8F=)(^CB^D3)(^8B=)(^93=)
+    (^90=)(^CC=4)(^B1=)(^CD=)(^9B=)(^9C=)(^91=)(^B4=)(^9F=)(^99=)(^88=)
+    (^CE=)(^B5=)(^8A=)(^B9=4)]
+  [5(^87^D4)(^86=)(^C3=)(^A1=)(^AE=)(^C4=)(^C5=)(^B2=)(^A7=)(^9A=)(^B3=)
+    (^C6=)(^A6=)(^A4=)(^A5=)(^A3=)(^9E=)(^85=)(^B0=)(^8D=0)(^C7=)(^A0=)
+    (^A2=)(^B7=)(^8C=0)(^B8^D8)(^83^D5)(^A8=)(^C8=1)(^84^D6)(^92=)(^C9^D2)
+    (^B6=)(^9D=)(^89=)(^8E=0)(^AF=)(^CA^97)(^8F=)(^CB^D9)(^8B=)(^93=)
+    (^90=)(^CC=5)(^B1=)(^CD=)(^9B=)(^9C=)(^91=)(^B4=)(^9F=)(^99=)(^88=)
+    (^CE=)(^B5=)(^8A=)(^B9=5)]}
