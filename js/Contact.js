@@ -9,7 +9,10 @@ function printContact1(contact) {
 	document.getElementById('contactList1').innerHTML = "";	  
 	console.log("contact=", contact, document.getElementById('contactList1'));
 	var contactString = " <b>Display Name: </b>";
-	var displayName = (contact.displayName == "" ? "<b>Anonymous</b>": contact.displayName);
+	var displayName = '';
+	if(is_string(contact.displayName)){
+		displayName = (contact.displayName == "" ? "<b>Anonymous</b>": contact.displayName);
+	}
 	contactString += displayName + "<br>";
 					// onclick='setPage(\"person.html\")\'
 	if(contact.nickname != undefined && contact.nickname != "") {

@@ -3,6 +3,12 @@ var selectedNumber;
 var contactList;
 var contactPage = "contact.html";
 var parameters;
+
+function is_string(input){
+    return typeof(input)=='string';
+  }
+
+
 // Print a contact names to HTML document
 function print_contact_names(list){
 	$('#noSettingsMessage').hide();
@@ -14,7 +20,13 @@ function print_contact_names(list){
     for ( var i = 0; i < list.length; i++){
               console.log("list=" ,list[i]);
               var contactString=" <b>Display Name: </b>";
-      var displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" :list[i].displayName );
+              var displayName = '';             
+     // if(is_string(list[i].displayName)){
+     if(is_string(list[i].displayName)){
+    	  displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" :list[i].displayName );
+      } else if((list[i].emails instanceof Array) && list[i].emails.length > 0){
+    	  displayName = list[i].emails[0].value;    	  
+      }
       contactString += "<a href='#contact' number='" + i + "' class=\"contact\">" + displayName +"</a>";
       //onclick='setPage(\"person.html\")\'
       $('#contactList').append(contactString);
