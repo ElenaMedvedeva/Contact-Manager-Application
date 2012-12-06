@@ -10,7 +10,7 @@ function printContact1(contact) {
 	console.log("contact=", contact, document.getElementById('contactList1'));
 	var contactString = " <b>Display Name: </b>";
 	var displayName = '';
-	if(is_string(contact.displayName)){
+	if(isString(contact.displayName)){
 		displayName = (contact.displayName == "" ? "<b>Anonymous</b>": contact.displayName);
 	}
 	contactString += displayName + "<br>";
@@ -73,12 +73,13 @@ function printContact1(contact) {
 				// string
 				contactString += "<img src=\"data:image/png;base64," + contact.photos[j].value + "\" alt=\"Image\"><br>";
 
-			else if (contact.photos[j].type == "url") // is an URL
+			else if (contact.photos[j].type == "url") { // is an URL
+				console.log("foto ",contact.photos[j]);
 				contactString += "<img src=\"" + contact.photos[j].value + "\" alt=\"Image\"><br>";
 			// TODO: quick and dirty solution for android
 			// issue. Photos arrays starts as array and get
 			// here as object
-			else { // if (/*(contact.photos instanceof
+			} else { // if (/*(contact.photos instanceof
 				// Object) &&*/ contact.photos.value) {
 				var photo =contact.photos[j].value;
 				contactString += "<img alt=\"Image\" , src=\"data:image\/png;base64, " + photo + "\" /><br>";
@@ -129,7 +130,9 @@ function initContact(){
 					var currlength = $('textarea',$("#tbox")).val().length ;			
 					$('.jMax-text span:first', $("#tbox")).html(twitterLimit - currlength);
 					},
-				function(){console.log('Tweet message unsuccessful'); alert("error");}
+				function(){ 
+						console.log('Tweet message unsuccessful'); 
+						alert("error");}
 			);				
 	});
 
@@ -175,7 +178,7 @@ $(document).ready(function() {
 	      for ( var i = 0; i < list.length; i++)
 	      {
 	                console.log("list=" ,list[i]);
-	                var contactString=" <b>Display Name: </b>";
+	                var contactString = " <b>Display Name: </b>";
 	        var displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" :list[i].displayName );
 	        contactString += displayName +"<br>";
 	        //onclick='setPage(\"person.html\")\'
@@ -230,15 +233,15 @@ $(document).ready(function() {
 	          for ( var j = 0; j < list[i].photos.length; j++)
 	          {
 	            if(list[i].photos[j].type=="file") //is base64 string
-	             contactString+="<img src=\"data:image/png;base64,"+list[i].photos[j].value+"\" alt=\"Image\"><br>";
+	             contactString += "<img src=\"data:image/png;base64," + list[i].photos[j].value+"\" alt=\"Image\"><br>";
 
-	            else if(list[i].photos[j].type=="url") //is an URL
-	                      contactString+="<img src=\""+list[i].photos[j].value+"\" alt=\"Image\"><br>";
+	            else if(list[i].photos[j].type == "url") //is an URL
+	                      contactString += "<img src=\"" + list[i].photos[j].value + "\" alt=\"Image\"><br>";
 
 	           //TODO: quick and dirty solution for android issue. Photos arrays starts as array and get here as object
 	           else { //if (/*(list[i].photos instanceof Object) &&*/ list[i].photos.value) {
 	            var photo = list[i].photos[j].value;
-	            contactString+="<img alt=\"Image\" , src=\"data:image\/png;base64, "+photo+"\" /><br>";
+	            contactString += "<img alt=\"Image\" , src=\"data:image\/png;base64, " + photo + "\" /><br>";
 	          }
 	          }
 	        }

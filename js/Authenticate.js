@@ -4,26 +4,24 @@ var contactList;
 var contactPage = "contact.html";
 var parameters;
 
-function is_string(input){
+function isString(input) {
     return typeof(input)=='string';
   }
 
 
 // Print a contact names to HTML document
-function print_contact_names(list){
-	$('#noSettingsMessage').hide();
-  //alert("contact list size " + list.length)
+function printContactNames(list) {
+	$('#noSettingsMessage').hide();  
   //clean then write
 	contactList = list;
   document.getElementById('contactList').innerHTML = "";
   if (list.length > 0){
     for ( var i = 0; i < list.length; i++){
               console.log("list=" ,list[i]);
-              var contactString=" <b>Display Name: </b>";
-              var displayName = '';             
-     // if(is_string(list[i].displayName)){
-     if(is_string(list[i].displayName)){
-    	  displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" :list[i].displayName );
+              var contactString = " <b>Display Name: </b>";
+              var displayName = '';
+     if(isString(list[i].displayName)){
+    	  displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" : list[i].displayName );
       } else if((list[i].emails instanceof Array) && list[i].emails.length > 0){
     	  displayName = list[i].emails[0].value;    	  
       }
@@ -53,8 +51,7 @@ function unreachableService(data) {
 
 
   
-  function handle_authentication_query() // see function
-  {
+  function handleAuthenticationQuery() {
 	  $("#connectionInfo").append("Connected to:<br/>");
 	  if(contacManager.permissions.type == "remote"){			 
 			 $("#connectionInfo").append("Gmail <br/> as " + contacManager.permissions.usr);
@@ -71,7 +68,7 @@ function unreachableService(data) {
       port = 8080;
     }
     console.log("!!!from setPage ", "port=", port);
-    var fetch = 'http://'+ window.location.hostname+':'+ port+'/client/Contact-Manager-Application/'+page;
+    var fetch = 'http://' + window.location.hostname + ':' + port + '/client/Contact-Manager-Application/' + page;
     console.log("!!!from setPage ", "fetch=", fetch);
     $.get(page, {}, function(reply) {
   	 // console.log("Reply=",reply);
@@ -86,7 +83,7 @@ function unreachableService(data) {
         port = 8080;
       }
       console.log("!!!from setPage ", "port=", port);
-      var fetch = 'http://'+window.location.hostname+':'+ port+'/client/Contact-Manager-Application/'+page;
+      var fetch = 'http://'+ window.location.hostname + ':' + port + '/client/Contact-Manager-Application/' + page;
       console.log("!!!from setPage ", "fetch=", fetch);
       $.get(page, {}, function(reply) {
     	  console.log("Reply=",reply);
@@ -102,21 +99,6 @@ $(document).ready(function() {
 		 setMainPage("allContacts.html");				
 	});
 	
-	/*$('#cnt_remote').bind('click', function()
-	{
-			       console.log('Remote methode');
-			       $('#remoteAuth ').show();
-			       $('#localAuth').hide();
-
-	});
-
-	 $('#cnt_local').bind('click', function()
-	{
-			      console.log('Local methode');
-			      $('#localAuth').show();
-			      $('#remoteAuth ').hide();
-	});*/
-	 
 	 
 	 $('#btnMainPage').bind('click', function() {
 		 	console.log("button clicked");
@@ -156,7 +138,7 @@ $(document).ready(function() {
 		  console.log("Settings!!!! ", data);
 		  contacManager.permissions = data;
 		     
-	      contacManager.getContacts(print_contact_names);
+	      contacManager.getContacts(printContactNames);
 	      console.log("contacManager.contactService",contacManager.contactService);
 	        
 	    }, function (err) {
@@ -168,9 +150,5 @@ $(document).ready(function() {
      
   });*/
 
-  
 
-  
-
-  
   });

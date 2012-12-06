@@ -14,11 +14,11 @@ contacManager.getContactService = function(successcb, errorcb) {
     function find() {
         webinos.discovery.findServices(
         new ServiceType('http://www.w3.org/ns/api-perms/contacts'), {
-            onFound: on_service_found
+            onFound: onServiceFound
         });
     }
 
-    function on_service_found(service) {
+    function onServiceFound(service) {
         if (!once) {
             once = true;
             bind(service);
@@ -51,7 +51,7 @@ contacManager.init = function(successcb, errorcb) {
 		 
 		/* contacManager.contactService.isAlreadyAuthenticated(contacManager.permissions, function(result)
 		{			 
-			    	contacManager.contactService.find(contacManager.permissions, print_contact_names);
+			    	contacManager.contactService.find(contacManager.permissions, printContactNames);
 		});*/
 	 }, function (err) {
      console.log(err.code);
@@ -61,7 +61,7 @@ contacManager.init = function(successcb, errorcb) {
 };
 
 contacManager.getContacts = function(found) {	
-	contacManager.init(handle_authentication_query, unreachableService);
+	contacManager.init(handleAuthenticationQuery, unreachableService);
 	contacManager.getContactService(function (svc) {
 		contacManager.contactService.isAlreadyAuthenticated(contacManager.permissions, function(result){			 
 		  contacManager.contactService.find(contacManager.permissions, found);

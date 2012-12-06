@@ -3,8 +3,7 @@
 //var contactPage = "contact.html";
 $(document).ready(function() {	
 			  //function find_contacts_cb()
-			  $('#btnFindServiceContacts').bind('click', function()
-			  {			   
+			  $('#btnFindServiceContacts').bind('click', function() {			   
 			    var result = false;
 			    if (contacManager.contactService)//(contactsService[0])
 			    {
@@ -50,7 +49,7 @@ $(document).ready(function() {
 			       }*/
 			    //  contacManager.permissions = parameters;
 			      
-			      contacManager.getContacts(print_contact_names); 
+			      contacManager.getContacts(printContactNames); 
 			    }
 			    }
 			  });
@@ -73,7 +72,7 @@ $(document).ready(function() {
 			  
 			  
 			  
-			  function setPage(displayName, page){
+			  function setPage(displayName, page) {
 				  console.log('from setPage');
 			      var port = window.location.port;
 			      if (typeof port === "undefined") {
@@ -91,13 +90,13 @@ $(document).ready(function() {
 			    };
 			    
 			  // Print a contact names to HTML document
-			  function print_contact_names(list){
+			  function printContactNames(list) {
 			    //alert("contact list size " + list.length)
 			    //clean then write
 				  contactList = list;
 			    document.getElementById('contactList').innerHTML = "";
-			    if (list.length > 0){
-			      for ( var i = 0; i < list.length; i++){
+			    if (list.length > 0) {
+			      for ( var i = 0; i < list.length; i++) {
 			                console.log("list=" ,list[i]);
 			                var contactString=" <b>Display Name: </b>";
 			        var displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" :list[i].displayName );

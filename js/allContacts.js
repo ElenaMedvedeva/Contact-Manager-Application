@@ -6,11 +6,11 @@ $(document).ready(
 				setMainPage("settings.html");
 			});
 			storer.getSettings(function(data) {
-
+				
 				console.log("Settings!!!! ", data);
 				contacManager.permissions = data;
 
-				contacManager.getContacts(print_contact_names);
+				contacManager.getContacts(printContactNames);
 				console.log("contacManager.contactService",
 						contacManager.contactService);
 

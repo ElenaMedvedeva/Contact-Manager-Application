@@ -6,8 +6,7 @@ storer.fileSystem = null;
 
 storer.createSettingObject = function() {
 	parameters = {};
-    if ($("input[@name='contactType']:checked").val() == 'remote')
-    {
+    if ($("input[@name='contactType']:checked").val() == 'remote') {
       usr = $('#usernameText').val();
       pwd = $('#passwordText').val();
       parameters.usr = usr;
@@ -15,8 +14,7 @@ storer.createSettingObject = function() {
       parameters.type = "remote";
 
     }
-    else if ($("input[@name='contactType']:checked").val() == 'local')
-    {
+    else if ($("input[@name='contactType']:checked").val() == 'local') {
       addressBookName = $('#addressBookNameText').val();
       parameters.addressBookName = addressBookName;
       parameters.type = "local";
@@ -164,11 +162,11 @@ storer.getFileService = function(successcb, errorcb) {
     function find() {
         webinos.discovery.findServices(
         new ServiceType('http://webinos.org/api/file'), {
-            onFound: on_service_found
+            onFound: onServiceFound
         });
     }
 
-    function on_service_found(service) {
+    function onServiceFound(service) {
         if (!once) {
             once = true;
             bind(service);

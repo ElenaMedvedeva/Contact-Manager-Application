@@ -232,7 +232,7 @@ function checkDeletion(){
 	var androidContacts = $('#contactList').find('li').find('input');	//AndroidContactsRawList
 
 	if (androidContacts !== undefined) {
-		for(var i=0;i<androidContacts.length;i++){
+		for(var i = 0;i < androidContacts.length;i++){
 		  var flagged = false;
 
 		  if(usrEmails !== undefined)					//do not add Android contacts without Twitter infos
