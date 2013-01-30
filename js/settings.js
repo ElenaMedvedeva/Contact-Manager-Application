@@ -28,7 +28,7 @@ $(document).ready(function() {
 			        console.log("Error:  " + err);
 		});      
 			     
-	});
+	});	
 	 
 	 storer.getSettings(function (data) {		 
 		  
@@ -50,8 +50,24 @@ $(document).ready(function() {
 	        
 	    }, function (err) {
 	    	
-	         $("#contactList").text("No settings found!");
+	         $("#settingsList").text("No settings found!");
 	        console.log("Error:  " + err);
+	    });  
+	 
+	 	storer.getSettingsList(function (data) {
+			console.log("getSettingsList=", data);
+			 document.getElementById('settingsList').innerHTML = "";
+			 for ( var i = 0; i < data.length; i++){
+				 if(data[i]){
+					 $('#settingsList').append(data[i].name);
+				     $('#settingsList').append("<br>");
+				 }
+			 }
+		 	},
+		 	function (err) {
+		    	
+		 		$("#settingsList").text("Error while loading settings!");
+		 		console.log("Error:  " + err);
 	    });   
 	
 });

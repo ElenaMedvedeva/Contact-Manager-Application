@@ -93,17 +93,19 @@ $(document).ready(function() {
 			  function printContactNames(list) {
 			    //alert("contact list size " + list.length)
 			    //clean then write
-				  contactList = list;
+				  contactList = list;				  
 			    document.getElementById('contactList').innerHTML = "";
 			    if (list.length > 0) {
 			      for ( var i = 0; i < list.length; i++) {
 			                console.log("list=" ,list[i]);
 			                var contactString=" <b>Display Name: </b>";
-			        var displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" :list[i].displayName );
-			        contactString += "<a href='#contact' number='" + i + "' class=\"contact\">" + displayName +"</a>";
-			        //onclick='setPage(\"person.html\")\'
-			        $('#contactList').append(contactString);
-			        $('#contactList').append("<br>");
+			                if(list[i]){
+			                	var displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" :list[i].displayName );
+			                	contactString += "<a href='#contact' number='" + i + "' class=\"contact\">" + displayName +"</a>";
+			                	//onclick='setPage(\"person.html\")\'
+			                	$('#contactList').append(contactString);
+			                	$('#contactList').append("<br>");
+			                }
 			      }       
 			    }
 			    else

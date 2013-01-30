@@ -14,21 +14,26 @@ function printContactNames(list) {
 	$('#noSettingsMessage').hide();  
   //clean then write
 	contactList = list;
-  document.getElementById('contactList').innerHTML = "";
+	//console.log("list_ooo" , list);
+	contacManager.list.push(list);
+	  console.log(" contacManager.list=" ,  contacManager.list);
+  //document.getElementById('contactList').innerHTML = "";
   if (list.length > 0){
     for ( var i = 0; i < list.length; i++){
               console.log("list=" ,list[i]);
               var contactString = " <b>Display Name: </b>";
               var displayName = '';
-     if(isString(list[i].displayName)){
-    	  displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" : list[i].displayName );
-      } else if((list[i].emails instanceof Array) && list[i].emails.length > 0){
-    	  displayName = list[i].emails[0].value;    	  
-      }
-      contactString += "<a href='#contact' number='" + i + "' class=\"contact\">" + displayName +"</a>";
-      //onclick='setPage(\"person.html\")\'
-      $('#contactList').append(contactString);
-      $('#contactList').append("<br>");
+              if(list[i]){
+            	  	if(isString(list[i].displayName)){
+            	  		displayName = (list[i].displayName == "" ? "<b>Anonymous</b>" : list[i].displayName );
+            	  	} else if((list[i].emails instanceof Array) && list[i].emails.length > 0){
+            	  		displayName = list[i].emails[0].value;    	  
+            	  	}
+            	  	contactString += "<a href='#contact' number='" + i + "' class=\"contact\">" + displayName +"</a>";
+            	  	//onclick='setPage(\"person.html\")\'
+            	  	$('#contactList').append(contactString);
+            	  	$('#contactList').append("<br>");
+              }
     }       
   }
   else

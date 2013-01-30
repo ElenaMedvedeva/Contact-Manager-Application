@@ -1,7 +1,7 @@
 var contacManager = {}; 
 contacManager.contactService = null; 
 contacManager.permissions = null;
-contacManager.list = null;
+contacManager.list = [];
 
 contacManager.getContactService = function(successcb, errorcb) {
     if (contacManager.contactService !== null) {
